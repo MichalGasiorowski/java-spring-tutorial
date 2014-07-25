@@ -11,11 +11,18 @@ public class App {
 		//ApplicationContext context = new FileSystemXmlApplicationContext("beans.xml"); // no path because beans.xml is in root path
 		ApplicationContext context = new ClassPathXmlApplicationContext("com/goose/spring/test/beans/beans.xml");
 		
-		Person person = (Person) context.getBean("person");
-		
+		Person person1 = (Person) context.getBean("person");
+		//Person person2 = (Person) context.getBean("person");
 		//Person person = new Person(); // instantiating without using Spring
-		person.speak();
+		//person.speak();
 		
+		person1.setTaxId(666);
+		//Address address = (Address)context.getBean("address");
+		
+		//System.out.println(address);
+		System.out.println(person1); // person2 has same taxId as person -> by DEFAULT bean has singleton scope
+		// scope prototype creates new instances
+		// prototype scope -> spring gives away handling of bean
 		((ClassPathXmlApplicationContext)context).close();
 	}
 
