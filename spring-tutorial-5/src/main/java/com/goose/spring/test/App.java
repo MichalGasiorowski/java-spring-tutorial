@@ -23,6 +23,10 @@ public class App {
 		System.out.println(person1); // person2 has same taxId as person -> by DEFAULT bean has singleton scope
 		// scope prototype creates new instances
 		// prototype scope -> spring gives away handling of bean
+		
+		Address address2 = (Address)context.getBean("address2");
+		System.out.println(address2);
+		
 		((ClassPathXmlApplicationContext)context).close();
 	}
 
