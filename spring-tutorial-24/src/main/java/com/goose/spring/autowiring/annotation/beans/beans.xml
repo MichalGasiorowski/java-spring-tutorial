@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+	<!-- 
+	<bean id="logger"
+		class="com.goose.spring.autowiring.annotation.test.Logger">
+	</bean>
+	<bean id="logger2"
+		class="com.goose.spring.autowiring.annotation.test.Logger2">
+	</bean>
+	<bean id="logger3"
+		class="com.goose.spring.autowiring.annotation.test.Logger3">
+	</bean>
+	<bean id="fileWriter"
+		class="com.goose.spring.autowiring.annotation.test.FileWriter">
+	</bean>
+	<bean id="moongoose"
+		class="com.goose.spring.autowiring.annotation.test.FileWriter">
+	</bean>
+	
+	<bean id="consoleWriter"
+		class="com.goose.spring.autowiring.annotation.test.ConsoleWriter">
+	<qualifier value="toconsole"></qualifier>
+	</bean>
+	<bean id="squirrel"
+		class="com.goose.spring.autowiring.annotation.test.ConsoleWriter">
+	</bean>
+	-->
+	
+	<context:annotation-config></context:annotation-config>
+	<context:component-scan
+		base-package="com.goose.spring.autowiring.annotation.test">
+	</context:component-scan>
+</beans>
