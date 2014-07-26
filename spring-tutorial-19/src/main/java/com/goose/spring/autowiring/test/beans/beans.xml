@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+	default-autowire="byType"
+	default-autowire-candidates="*Writer"> <!-- no spaces in candidates list! -->
+
+
+	<bean id="logger" class="com.goose.spring.autowiring.test.Logger"
+		autowire="byType">
+	</bean>
+	
+	
+	<bean id="logger2" class="com.goose.spring.autowiring.test.Logger"
+		autowire="byName">
+	</bean>
+	
+	<bean id="logger3" class="com.goose.spring.autowiring.test.Logger3"
+		autowire="constructor">
+	</bean>
+	
+	<bean id="logger4" class="com.goose.spring.autowiring.test.Logger4">
+	</bean>
+	
+	<!-- Watch for capitalization for autowiring byName -->
+	
+	<bean id="consoleWriter"
+		class="com.goose.spring.autowiring.test.ConsoleWriter"
+		primary="true">
+	</bean>
+	<bean id="pandaWriter"
+		class="com.goose.spring.autowiring.test.ConsoleWriter">
+	</bean>
+	<bean id="fileWriter"
+		class="com.goose.spring.autowiring.test.FileWriter">
+	</bean>
+	
+	<bean id="fileWriter2"
+		class="com.goose.spring.autowiring.test.FileWriter">
+	</bean>
+	
+	<bean id="squirrelWriter"
+		class="com.goose.spring.autowiring.test.FileWriter"
+		autowire-candidate="false">
+	</bean>
+
+</beans>
