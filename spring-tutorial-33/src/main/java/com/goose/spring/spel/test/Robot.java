@@ -2,6 +2,7 @@ package com.goose.spring.spel.test;
 
 import javax.inject.Inject;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -22,11 +23,25 @@ public class Robot {
 	}  
 	 */
 	
+	/*
 	@Inject
 	public void setId(@Value("#{randomText.text?.length()}") String id) {
 		this.id = id;
 	}
+	
+	*/
+	@Autowired
+	public void setId(@Value("${jdbc.user}")String id) {
+		this.id = id;
+	}
+	
+	@Autowired
+	public void setSpeech(@Value("${jdbc.password}") String speech) {
+		this.speech = speech;
+	}
+	
 
+	/*
 	@Inject
 	//new java.util.Date().toString()
 	// T(Math).PI   		--> static methods
@@ -35,5 +50,5 @@ public class Robot {
 	public void setSpeech(@Value("#{T(Math).sin(T(Math).PI/4) ^ 2 le 0.8 ? 'yes' : 'no'}") String speech) {
 		this.speech = speech;
 	}
-
+	*/
 }

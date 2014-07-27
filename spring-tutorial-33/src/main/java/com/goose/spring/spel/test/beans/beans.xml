@@ -15,5 +15,17 @@
 		class="com.goose.spring.spel.test.RandomText">
 	</bean>
 	-->
+	
+	
 	<context:component-scan base-package="com.goose.spring.spel.test"></context:component-scan>
+	<context:property-placeholder
+		location="com/goose/spring/spel/props/jdbc.properties" />
+		
+	<!--  	
+	<bean id="robot" class="com.goose.spring.spel.test.Robot">
+		<property name="id" value="${jdbc.user}"></property>
+		<property name="speech" value="${jdbc.password}"></property>
+	</bean>
+	-->
+	
 </beans>
