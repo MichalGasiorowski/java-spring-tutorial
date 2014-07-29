@@ -8,8 +8,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.CannotGetJdbcConnectionException;
 
-import com.goose.spring.dao.OffersDAO;
 import com.goose.spring.model.Offer;
+import com.goose.spring.dao.OffersDAO;
 
 public class App {
 
@@ -21,7 +21,7 @@ public class App {
 		OffersDAO offersDao = (OffersDAO) context.getBean("offersDao");
 
 		try {
-			
+				
 			//offersDao.delete(1);
 			
 			/*
