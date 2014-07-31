@@ -5,11 +5,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class Camera {
 	
-	public void snap() {
+	public void snap() throws Exception{
 		// joint point - anywhere in code where aspect can run some advice
 		// in spring -> only one joint point : method execution
 		
 		System.out.println("SNAP");
+		//throw new Exception("It's a lion. Get in the car!");
 	}
 	
 	

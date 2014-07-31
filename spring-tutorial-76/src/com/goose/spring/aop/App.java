@@ -12,12 +12,19 @@ public class App {
 		Camera camera = (Camera)context.getBean("camera");
 		Lens lens = (Lens)context.getBean("lens");
 		
-		camera.snap();
-		camera.snap(1000);
-		camera.snap("Warsaw Old Castle");
-		camera.snapNightTime();
+		//camera.snap();
 		
-		lens.zoom(7);
+		try {
+			camera.snap();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			System.out.println("Exception caught: " + e.getMessage());
+		}
+		//camera.snap(1000);
+		//camera.snap("Warsaw Old Castle");
+		//camera.snapNightTime();
+		
+		//lens.zoom(7);
 		
 		((ClassPathXmlApplicationContext)context).close();
 	}
