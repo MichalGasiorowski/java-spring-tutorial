@@ -3,6 +3,11 @@
   <groupId>com.goose.spring.aop</groupId>
   <artifactId>spring-tutorial-80</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  
+  <properties>
+    <jdk.version>1.7</jdk.version>
+  </properties>
+  
   <dependencies>
   	<dependency>
   		<groupId>org.springframework</groupId>
