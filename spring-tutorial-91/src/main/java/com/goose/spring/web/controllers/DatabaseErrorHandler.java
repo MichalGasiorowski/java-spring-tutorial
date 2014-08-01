@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 public class DatabaseErrorHandler {
 	@ExceptionHandler(DataAccessException.class)
 	public String handleDatabaseException(DataAccessException ex) {
-		System.out.println(ex.toString());
+		ex.printStackTrace();
 		return "error";
 	}
 }

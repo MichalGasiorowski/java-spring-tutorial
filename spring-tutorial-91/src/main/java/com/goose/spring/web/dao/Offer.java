@@ -9,7 +9,7 @@ import com.goose.spring.web.validation.ValidEmail;
 public class Offer {
 	private int id;
 	
-	@Size(min=5, max=100, message="Name mkust be between 5 and 100 characters.")
+	@Size(min=5, max=100)
 	private String name;
 	/*
 	@NotNull
@@ -19,10 +19,10 @@ public class Offer {
 	
 	@NotNull
 	//@Pattern(regexp=".*\\@.*\\..*", message="This is not a valid email address.")
-	@ValidEmail(min=8, message="This email address is not valid.")
+	@ValidEmail(min=8)
 	private String email;
 	
-	@Size(min=25, max=255, message="Name must be between 20 and 255 characters.")
+	@Size(min=25, max=255)
 	private String text;
 
 	

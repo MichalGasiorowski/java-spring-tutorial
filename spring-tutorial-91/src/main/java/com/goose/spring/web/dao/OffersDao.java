@@ -22,13 +22,13 @@ import org.springframework.transaction.annotation.Transactional;
 import com.goose.spring.web.dao.Offer;
 
 @Component("offersDao")
-public class OffersDAO {
+public class OffersDao {
 
 	// private JdbcTemplate jdbc;
 	private NamedParameterJdbcTemplate jdbc;
 
 	
-	public OffersDAO() {
+	public OffersDao() {
 		System.out.println("Successfully loaded offers DAO!");
 	}
 
