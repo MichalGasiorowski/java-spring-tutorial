@@ -70,10 +70,10 @@ $(document).ready(onLoad);
 				<td class="label">Email: <sf:input name="email" type="text" class="control" path="email"/><br/><div class="error"><sf:errors path="email"></sf:errors></div></td>
 			</tr>
 			<tr>
-				<td class="label">Password: <sf:input id="password" name="password" type="text" class="control" path="password"/><br/><div class="error"><sf:errors path="password"></sf:errors></div></td>
+				<td class="label">Password: <sf:input id="password" name="password" type="password" class="control" path="password"/><br/><div class="error"><sf:errors path="password"></sf:errors></div></td>
 			</tr>
 			<tr>
-				<td class="label">Confirm password: <input id="confirmpass" name="confirmpass" type="text" class="control" /><div id="matchpass"></div></td>
+				<td class="label">Confirm password: <input id="confirmpass" name="confirmpass" type="password" class="control" /><div id="matchpass"></div></td>
 			</tr>
 			<tr>
 				<td class="label"> <input value="Create account" type="submit" class="control" /></td>

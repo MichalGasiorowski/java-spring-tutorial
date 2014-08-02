@@ -30,6 +30,11 @@ public class LoginController {
 		return "login";
 	}
 	
+	@RequestMapping("denied")
+	public String showDenied() {
+		return "denied";
+	}
+	
 
 	@RequestMapping("/admin")
 	public String showAdmin(Model model) {
@@ -58,7 +63,7 @@ public class LoginController {
 		}
 		
 		user.setEnabled(true);
-		user.setAuthority("user");
+		user.setAuthority("ROLE_USER");
 		
 		if(usersService.exists(user.getUsername())) {
 			System.out.println("Duplicate username");

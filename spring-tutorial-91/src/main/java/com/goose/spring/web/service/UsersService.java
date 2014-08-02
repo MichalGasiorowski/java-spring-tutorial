@@ -33,6 +33,7 @@ public class UsersService {
 	}
 
 
+	// backup way of securing, kinda
 	@Secured("ROLE_ADMIN")
 	public List<User> getAllUsers() {
 		return usersDao.getAllUsers();
