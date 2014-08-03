@@ -11,7 +11,6 @@
 		<welcome-file>default.html</welcome-file>
 		<welcome-file>default.htm</welcome-file>
 		<welcome-file>default.jsp</welcome-file>
-		<welcome-file>home.jsp</welcome-file>
 	</welcome-file-list>
 	<servlet>
 		<description>Offers servlet</description>
@@ -28,7 +27,8 @@
 		<servlet-name>offers</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-	<description>Spring Database App</description>
+	
+	<description>Spring Database</description>
 	<resource-ref>
 		<description>mysq tutorial jdbc</description>
 		<res-ref-name>jdbc/spring</res-ref-name>
