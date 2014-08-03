@@ -1,0 +1,1 @@
+-Dlog4j.debug -> for debug of loading log4j
