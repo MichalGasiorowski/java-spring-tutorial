@@ -16,27 +16,26 @@ import org.hibernate.validator.constraints.NotBlank;
 public class User {
 
 	
-	@NotBlank
-	@Size(min=8, max=15)
-	@Pattern(regexp="^\\w{8,}$")
+	@NotBlank(groups={PersistenceValidationGroup.class, FormValidationGroup.class})
+	@Size(min=8, max=15, groups={PersistenceValidationGroup.class, FormValidationGroup.class})
+	@Pattern(regexp="^\\w{8,}$", groups={PersistenceValidationGroup.class, FormValidationGroup.class})
 	@Id
 	@Column(name="username")
 	private String username;
 	
-	@NotBlank
-	@Pattern(regexp="^\\S+$")
-	@Size(min=8, max=15)
+	@NotBlank(groups={PersistenceValidationGroup.class, FormValidationGroup.class})
+	@Pattern(regexp="^\\S+$", groups={PersistenceValidationGroup.class, FormValidationGroup.class})
+	@Size(min=8, max=15, groups={FormValidationGroup.class})
 	@Column(name="password")
 	private String password;
 	
-	@NotBlank // @Email cant validate blank emails
-	@Email
+	@NotBlank(groups={PersistenceValidationGroup.class, FormValidationGroup.class}) // @Email cant validate blank emails
+	@Email(groups={PersistenceValidationGroup.class, FormValidationGroup.class})
 	@Column(name="email")
 	private String email;
 	
-	@NotBlank
-	@Size(min=1, max=60)
-	@Pattern(regexp="^\\w{8,}$")
+	@NotBlank(groups={PersistenceValidationGroup.class, FormValidationGroup.class})
+	@Size(min=1, max=60, groups={PersistenceValidationGroup.class, FormValidationGroup.class})
 	@Column(name="name")
 	private String name;
 	
