@@ -14,6 +14,8 @@ public class OffersService {
 
 	private OffersDao offersDao;
 
+	
+	
 	public OffersService() {
 		System.out.println("OffersService constructed.");
 	}
@@ -67,6 +69,8 @@ public class OffersService {
 	public void delete(int id) {
 		offersDao.delete(id);
 	}
+	
+	
 	
 	
 }

@@ -6,22 +6,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Service;
 
+import com.goose.spring.web.dao.Message;
+import com.goose.spring.web.dao.MessagesDao;
 import com.goose.spring.web.dao.User;
 import com.goose.spring.web.dao.UsersDao;
 
 @Service("usersService")
 public class UsersService {
 
+	@Autowired
 	private UsersDao usersDao;
 
+	@Autowired
+	private MessagesDao messagesDao;
+	
+	
 	public UsersService() {
 		System.out.println("OffersService constructed.");
-	}
-
-	
-	@Autowired
-	public void setUsersDao(UsersDao usersDao) {
-		this.usersDao = usersDao;
 	}
 
 	public void create(User user) {
@@ -39,5 +40,11 @@ public class UsersService {
 		return usersDao.getAllUsers();
 	}
 	
+	public void sendMessage(Message message) {
+		messagesDao.saveOrUpdate(message);
+	}
 	
+	public User getUser(String username) {
+		return usersDao.getUser(username);
+	}
 }

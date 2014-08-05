@@ -73,4 +73,13 @@
 		<put-attribute name="content" value="/WEB-INF/tiles/createoffer.jsp"></put-attribute>
 	</definition>
 	
+	<definition name="showContactForm" extends="offers.base">
+		<put-attribute name="title" value="Send message"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/contact.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="messageSent" extends="offers.base">
+		<put-attribute name="title" value="Message Sent"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/messagesent.jsp"></put-attribute>
+	</definition>
 </tiles-definitions>

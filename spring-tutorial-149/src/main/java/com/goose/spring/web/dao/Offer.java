@@ -1,5 +1,7 @@
 package com.goose.spring.web.dao;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,8 +17,13 @@ import com.goose.spring.web.validation.ValidEmail;
 
 @Entity
 @Table(name="offers")
-public class Offer {
+public class Offer implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7890980260417731468L;
+
 	@Id
 	@GeneratedValue
 	private int id;

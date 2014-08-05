@@ -1,13 +1,13 @@
 package com.goose.spring.web.test.tests;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertEquals;
 
 import java.util.List;
 
 import javax.sql.DataSource;
-import javax.validation.constraints.AssertFalse;
 
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -19,25 +19,33 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.goose.spring.web.dao.Message;
+import com.goose.spring.web.dao.MessagesDao;
+import com.goose.spring.web.dao.Offer;
+import com.goose.spring.web.dao.OffersDao;
 import com.goose.spring.web.dao.User;
 import com.goose.spring.web.dao.UsersDao;
 
-
-
 @ActiveProfiles("dev")
-// only for dev profile
 @ContextConfiguration(locations = {
 		"file:src/main/java/com/goose/spring/web/config/dao-context.xml",
 		"file:src/main/java/com/goose/spring/web/config/security-context.xml",
-		"file:src/test/java/com/goose/spring/web/test/config/datasource.xml" })
+		"file:src/test/java/com/goose/spring/web/test/config/datasource.xml", })
 @RunWith(SpringJUnit4ClassRunner.class)
-public class UserDaoTests {
+public class MessageDaoTest {
+
+	@Autowired
+	private OffersDao offersDao;
 	
 	@Autowired
 	private UsersDao usersDao;
+	
+	@Autowired
+	private MessagesDao messagesDao;
 
 	@Autowired
 	private DataSource dataSource;
+	
 	
 	private User user1 = new User("johnwpurcell", "John Purcell", "hellothere",
 			"john@caveofprogramming.com", true, "ROLE_USER");
@@ -48,68 +56,27 @@ public class UserDaoTests {
 	private User user4 = new User("rogerblake", "Rog Blake", "liberator",
 			"rog@caveofprogramming.com", false, "user");
 	
-	
 	@Before
-	public void init() {
+	public void setUp() throws Exception {
 		JdbcTemplate jdbc = new JdbcTemplate(dataSource);
+		
 		jdbc.execute("delete from offers");
 		jdbc.execute("delete from messages");
 		jdbc.execute("delete from users");
 	}
 	
 	@Test
-	public void testCreateRetrieve() {
+	public void testSave() {
 		usersDao.create(user1);
-		
-		List<User> users1 = usersDao.getAllUsers();
-		
-		assertEquals("One user created and one should be retrieved", 1, users1.size());
-		assertEquals("Inserted user should be the same as retrieved", user1, users1.get(0));
-		
 		usersDao.create(user2);
 		usersDao.create(user3);
 		usersDao.create(user4);
 		
-		List<User> users2 = usersDao.getAllUsers();
+		Message message1 = new Message("Test Subjct 1", "Test content 1", "Isaac Newton", "isaac@gmail.com", user1.getUsername());
+		messagesDao.saveOrUpdate(message1);
 		
-		assertEquals("Should be 4 retrieved users", 4, users2.size());
-		
-	}
-	
-	@Test
-	public void testExists() {
-		usersDao.create(user1);
-		usersDao.create(user2);
-		usersDao.create(user3);
-		
-		assertTrue("User should exist", usersDao.exists(user2.getUsername()));
-		assertFalse("User should exist", usersDao.exists("gklnm45k"));
-	}
-	
-	/*
-	@AfterClass
-	public void tearDownAfterClass() {
-		JdbcTemplate jdbc = new JdbcTemplate(dataSource);
-		jdbc.execute("delete from offers");
-		jdbc.execute("delete from users");
-	}
-	*/
-	
-	/*
-	@Test
-	public void testUsers() {
-		User user = new User("CrazyMike", "Mike the Crazy", "qaz1wsx2", "Mike@gmail.com", true, "ROLE_USER");	
-		usersDao.create(user);
-		
-		List<User> users = usersDao.getAllUsers();
-		assertEquals("There should be 1 user", 1, users.size());
-		assertTrue("User should exist", usersDao.exists(user.getUsername()));
-		assertFalse("User should not exist", usersDao.exists("dsdsdsq1"));
-		
-		assertEquals("Created user should be identical user", user, users.get(0));
 		
 	}
-	*/
 	
-	
+
 }
