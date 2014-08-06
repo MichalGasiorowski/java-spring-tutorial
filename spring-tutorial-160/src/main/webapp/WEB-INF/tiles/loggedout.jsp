@@ -1,0 +1,2 @@
+
+Logging out completed successfully	
